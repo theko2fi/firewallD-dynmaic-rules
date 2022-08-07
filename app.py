@@ -41,11 +41,16 @@ def add_source(zone, source):
     fw_zone, fw_settings = get_fw_zone_settings(zone)
     fw_settings.addSource(source)
     update_fw_settings(fw_zone, fw_settings)
+    fw_reload()
 
 def remove_source(zone, source):
     fw_zone, fw_settings = get_fw_zone_settings(zone)
     fw_settings.removeSource(source)
     update_fw_settings(fw_zone, fw_settings)
+
+##### reload
+def fw_reload():
+    fw.reload()
 
 @app.route("/")
 def hello_world():
